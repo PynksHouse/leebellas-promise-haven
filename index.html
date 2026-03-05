@@ -10,188 +10,173 @@
     :root{
       --plum:#4B2E83;
       --rose:#C48A6A;
-      --charcoal:#2B2B2B;
-      --ivory:#F7F4EF;
-      --white:#ffffff;
+      --ink:#222;
+      --bg:#F7F4EF;
+      --card:#ffffff;
       --shadow: 0 10px 30px rgba(0,0,0,.10);
       --radius: 18px;
-      --max: 1100px;
+      --max: 1050px;
     }
-
     *{ box-sizing:border-box; }
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--charcoal);
-      background: linear-gradient(180deg, #ffffff 0%, var(--ivory) 100%);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--ink);
+      background: linear-gradient(180deg, #fff 0%, var(--bg) 100%);
     }
-
     a{ color:inherit; text-decoration:none; }
     .container{ max-width: var(--max); margin: 0 auto; padding: 0 18px; }
 
-    /* Top bar */
-    .topbar{
+    /* Header */
+    header{
+      padding: 18px 0;
       position: sticky;
-      top:0;
-      z-index:10;
+      top: 0;
+      z-index: 10;
+      background: rgba(255,255,255,.85);
       backdrop-filter: blur(10px);
-      background: rgba(255,255,255,.78);
       border-bottom: 1px solid rgba(0,0,0,.06);
     }
     .nav{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      padding: 10px 0;
-      gap: 14px;
+      gap: 12px;
+      flex-wrap: wrap;
     }
     .brand{
       display:flex;
       align-items:center;
       gap: 12px;
-      min-width: 220px;
     }
     .brand img{
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
       object-fit: contain;
       background: #fff;
-      box-shadow: 0 6px 18px rgba(0,0,0,.08);
+      box-shadow: 0 6px 18px rgba(0,0,0,.10);
     }
-    .brand .name{
-      display:flex;
-      flex-direction:column;
-      line-height:1.1;
+    .brand .text{
+      line-height: 1.15;
     }
-    .brand .name strong{ font-size: 14px; letter-spacing:.2px; }
-    .brand .name span{ font-size: 12px; opacity:.75; }
-
-    .links{
+    .brand .text strong{
+      display:block;
+      font-size: 14px;
+      letter-spacing: .2px;
+      color: var(--plum);
+    }
+    .brand .text span{
+      display:block;
+      font-size: 12px;
+      opacity: .75;
+    }
+    nav{
       display:flex;
-      gap: 14px;
-      flex-wrap:wrap;
+      gap: 10px;
+      flex-wrap: wrap;
       justify-content:flex-end;
       font-size: 13px;
     }
-    .links a{
+    nav a{
       padding: 8px 10px;
       border-radius: 999px;
-      transition: background .2s ease;
     }
-    .links a:hover{ background: rgba(75,46,131,.08); }
+    nav a:hover{ background: rgba(75,46,131,.08); }
 
     /* Buttons */
+    .btnrow{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 14px; }
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
       padding: 12px 16px;
       border-radius: 999px;
+      font-weight: 700;
       border: 1px solid transparent;
-      font-weight: 600;
-      cursor: pointer;
       transition: transform .06s ease, box-shadow .2s ease, background .2s ease;
-      gap: 10px;
       white-space: nowrap;
     }
     .btn:active{ transform: translateY(1px); }
     .btn-primary{
       background: var(--plum);
-      color: var(--white);
+      color: #fff;
       box-shadow: 0 10px 22px rgba(75,46,131,.25);
     }
     .btn-primary:hover{ box-shadow: 0 12px 26px rgba(75,46,131,.32); }
     .btn-secondary{
-      background: rgba(196,138,106,.12);
+      background: rgba(196,138,106,.14);
       border-color: rgba(196,138,106,.55);
-      color: var(--charcoal);
     }
-    .btn-secondary:hover{ background: rgba(196,138,106,.18); }
     .btn-ghost{
       background: rgba(0,0,0,.02);
-      border-color: rgba(0,0,0,.10);
+      border-color: rgba(0,0,0,.12);
     }
-    .btn-ghost:hover{ background: rgba(0,0,0,.05); }
+    .btn-ghost:hover{ background: rgba(0,0,0,.06); }
 
     /* Hero */
-    .hero{
-      padding: 64px 0 26px;
-    }
+    .hero{ padding: 52px 0 28px; }
     .heroCard{
       background: radial-gradient(1200px 400px at 20% 0%, rgba(75,46,131,.20), transparent 60%),
                   radial-gradient(900px 300px at 90% 10%, rgba(196,138,106,.22), transparent 55%),
-                  #ffffff;
+                  var(--card);
       border: 1px solid rgba(0,0,0,.06);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding: 26px;
       display:grid;
       grid-template-columns: 1.3fr .7fr;
-      gap: 20px;
+      gap: 18px;
       align-items:center;
     }
-    .hero h1{
-      margin: 0 0 10px;
+    h1{
+      margin:0 0 10px;
       font-size: clamp(28px, 3.4vw, 44px);
       letter-spacing: -0.6px;
       color: var(--plum);
     }
     .tagline{
-      margin: 0 0 14px;
-      font-size: clamp(14px, 1.4vw, 18px);
-      opacity: .9;
-    }
-    .hero p{
-      margin: 0 0 16px;
-      font-size: 15px;
-      line-height: 1.55;
+      margin:0 0 14px;
+      font-size: 16px;
       opacity: .92;
-      max-width: 62ch;
+      line-height: 1.45;
     }
-    .ctaRow{
-      display:flex;
-      gap: 10px;
-      flex-wrap:wrap;
-      margin-top: 10px;
-    }
-    .statsMini{
+    .hero p{ margin:0; line-height: 1.6; font-size: 14.5px; opacity:.92; max-width: 68ch; }
+
+    .mini{
       display:grid;
       gap: 10px;
     }
-    .statBox{
-      background: rgba(255,255,255,.82);
+    .mini .box{
+      background: rgba(255,255,255,.85);
       border: 1px solid rgba(0,0,0,.06);
       border-radius: 16px;
       padding: 14px;
     }
-    .statBox strong{
+    .mini .box strong{
       display:block;
-      font-size: 18px;
       color: var(--plum);
+      font-size: 18px;
     }
-    .statBox span{ font-size: 12px; opacity: .75; }
+    .mini .box span{
+      display:block;
+      font-size: 12px;
+      opacity: .75;
+      margin-top: 2px;
+    }
 
     /* Sections */
-    section{ padding: 38px 0; }
+    section{ padding: 34px 0; }
     .sectionTitle{
       display:flex;
       align-items:flex-end;
       justify-content:space-between;
       gap: 10px;
       margin-bottom: 14px;
+      flex-wrap: wrap;
     }
-    .sectionTitle h2{
-      margin:0;
-      font-size: 22px;
-      color: var(--plum);
-    }
-    .sectionTitle p{
-      margin:0;
-      font-size: 13px;
-      opacity: .78;
-      max-width: 60ch;
-    }
+    .sectionTitle h2{ margin:0; font-size: 22px; color: var(--plum); }
+    .sectionTitle p{ margin:0; font-size: 13px; opacity:.78; max-width: 70ch; }
 
     .grid3{
       display:grid;
@@ -199,22 +184,11 @@
       gap: 14px;
     }
     .card{
-      background:#fff;
+      background: var(--card);
       border: 1px solid rgba(0,0,0,.06);
       border-radius: var(--radius);
       box-shadow: 0 8px 22px rgba(0,0,0,.06);
       padding: 18px;
-    }
-    .card h3{
-      margin: 0 0 8px;
-      font-size: 16px;
-      color: var(--charcoal);
-    }
-    .card p{
-      margin: 0;
-      font-size: 14px;
-      line-height: 1.55;
-      opacity: .9;
     }
     .pill{
       display:inline-block;
@@ -226,83 +200,45 @@
       border: 1px solid rgba(75,46,131,.15);
       margin-bottom: 10px;
     }
+    .card h3{ margin: 0 0 8px; font-size: 16px; }
+    .card p{ margin: 0; font-size: 14px; line-height: 1.55; opacity: .92; }
 
-    /* Impact */
-    .impactRow{
+    .two{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
-      align-items:stretch;
-    }
-    .checklist{
-      margin: 10px 0 0;
-      padding-left: 18px;
-      line-height: 1.7;
-      font-size: 14px;
-      opacity: .92;
-    }
-    .muted{ opacity: .78; font-size: 13px; }
-
-    /* Contact */
-    .contactGrid{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 14px;
-      align-items:start;
-    }
-    .contactItem{
-      display:flex;
-      flex-direction:column;
-      gap: 6px;
-      font-size: 14px;
-    }
-    .contactItem a{
-      color: var(--plum);
-      text-decoration: underline;
-      text-decoration-color: rgba(75,46,131,.30);
     }
 
-    /* Footer */
     footer{
       padding: 22px 0;
       border-top: 1px solid rgba(0,0,0,.06);
       background: rgba(255,255,255,.7);
-    }
-    .footerRow{
-      display:flex;
-      justify-content:space-between;
-      gap: 12px;
-      flex-wrap:wrap;
       font-size: 12px;
       opacity: .82;
     }
+    .footerRow{ display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
 
-    /* Responsive */
     @media (max-width: 900px){
       .heroCard{ grid-template-columns: 1fr; }
-      .impactRow{ grid-template-columns: 1fr; }
-      .contactGrid{ grid-template-columns: 1fr; }
       .grid3{ grid-template-columns: 1fr; }
-      .links{ justify-content:flex-start; }
-      .brand{ min-width: unset; }
+      .two{ grid-template-columns: 1fr; }
     }
   </style>
 </head>
 
 <body>
-  <!-- Top Navigation -->
-  <div class="topbar">
+  <header>
     <div class="container">
       <div class="nav">
         <a class="brand" href="#top" aria-label="Home">
-          <img src="assets/logo.png" alt="Lee-Bella’s Promise Haven logo" />
-          <div class="name">
+          <img src="logo.png" alt="Lee-Bella’s Promise Haven logo" />
+          <div class="text">
             <strong>Lee-Bella’s Promise Haven</strong>
-            <span>Nonprofit in formation • Georgia</span>
+            <span>Nonprofit in formation • Suwanee, GA</span>
           </div>
         </a>
 
-        <nav class="links" aria-label="Site navigation">
+        <nav aria-label="Site navigation">
           <a href="#about">About</a>
           <a href="#programs">Programs</a>
           <a href="#impact">Impact</a>
@@ -311,9 +247,8 @@
         </nav>
       </div>
     </div>
-  </div>
+  </header>
 
-  <!-- Hero -->
   <main id="top" class="hero">
     <div class="container">
       <div class="heroCard">
@@ -327,45 +262,48 @@
             transportation—so people can attend interviews, maintain employment, and access essential services.
           </p>
 
-          <div class="ctaRow">
-            <!-- Replace the DONATE link when ready (GoFundMe/PayPal/etc.) -->
+          <div class="btnrow">
+            <!-- 1) Replace the donation link below with your GoFundMe/PayPal/etc. -->
             <a class="btn btn-primary" href="https://example.com/donate" target="_blank" rel="noopener">Donate</a>
-            <a class="btn btn-secondary" href="#get-involved">Volunteer</a>
-            <a class="btn btn-ghost" href="mailto:leebellaspromisehaven@gmail.com?subject=Partnership%20Inquiry%20-%20Lee-Bella%E2%80%99s%20Promise%20Haven">Partner with us</a>
-          </div>
 
-          <p class="muted" style="margin-top:12px;">
-            *Donation link placeholder—update anytime (GoFundMe, PayPal, Cash App, etc.).
-          </p>
+            <!-- 2) Volunteer button -->
+            <a class="btn btn-secondary" href="mailto:leebellaspromisehaven@gmail.com?subject=Volunteer%20Interest%20-%20Lee-Bella%E2%80%99s%20Promise%20Haven">
+              Volunteer
+            </a>
+
+            <!-- 3) Partner button -->
+            <a class="btn btn-ghost" href="mailto:leebellaspromisehaven@gmail.com?subject=Partnership%20Inquiry%20-%20Lee-Bella%E2%80%99s%20Promise%20Haven">
+              Partner with us
+            </a>
+          </div>
         </div>
 
-        <div class="statsMini" aria-label="Key goals">
-          <div class="statBox">
+        <div class="mini">
+          <div class="box">
             <strong>50+</strong>
             <span>people served in 2026 (pilot goal)</span>
           </div>
-          <div class="statBox">
+          <div class="box">
             <strong>Transportation</strong>
-            <span>bus passes to access jobs & services</span>
+            <span>bus passes for jobs & services</span>
           </div>
-          <div class="statBox">
+          <div class="box">
             <strong>Resource Navigation</strong>
-            <span>connections to workforce & support services</span>
+            <span>connections to workforce & support</span>
           </div>
         </div>
       </div>
     </div>
   </main>
 
-  <!-- About -->
   <section id="about">
     <div class="container">
       <div class="sectionTitle">
         <h2>About</h2>
-        <p>Built on compassion, practicality, and measurable outcomes.</p>
+        <p>Practical support, compassionate care, measurable outcomes.</p>
       </div>
 
-      <div class="impactRow">
+      <div class="two">
         <div class="card">
           <span class="pill">Mission</span>
           <p>
@@ -377,149 +315,108 @@
         <div class="card">
           <span class="pill">Founder</span>
           <p>
-            Founded by <strong>Tanika Elease Brown</strong>, Lee-Bella’s Promise Haven was created to make it easier for people to access real opportunities—
-            not just temporary relief—through consistent support, guidance, and community partnerships.
+            Founded by <strong>Tanika Elease Brown</strong>, Lee-Bella’s Promise Haven was created to help individuals access real opportunities—jobs,
+            services, and housing pathways—by eliminating practical barriers that keep people stuck in survival mode.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Programs -->
   <section id="programs">
     <div class="container">
       <div class="sectionTitle">
         <h2>Programs</h2>
-        <p>Direct support that removes barriers and connects people to opportunity.</p>
+        <p>What we provide through outreach, support, and partnerships.</p>
       </div>
 
       <div class="grid3">
         <div class="card">
           <span class="pill">Outreach & Stabilization</span>
           <h3>Meet people where they are</h3>
-          <p>
-            We connect with individuals in the community, identify immediate needs, and provide guidance toward services that support stability.
-          </p>
+          <p>We connect directly in the community, identify needs, and guide individuals to resources that support stability.</p>
         </div>
 
         <div class="card">
           <span class="pill">Transportation Assistance</span>
           <h3>Access to jobs & appointments</h3>
-          <p>
-            We provide public transit support so individuals can attend job interviews, maintain employment, and access essential services.
-          </p>
+          <p>We provide public transit support so individuals can attend interviews, maintain employment, and access essential services.</p>
         </div>
 
         <div class="card">
           <span class="pill">Resource Navigation</span>
           <h3>Connections that matter</h3>
-          <p>
-            We connect individuals to workforce programs, benefits enrollment support, healthcare resources, and housing pathways.
-          </p>
+          <p>We connect individuals to workforce programs, benefits support, healthcare resources, and housing pathways.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Impact -->
   <section id="impact">
     <div class="container">
       <div class="sectionTitle">
         <h2>Impact</h2>
-        <p>What we track, measure, and improve.</p>
+        <p>How we measure progress and strengthen the community.</p>
       </div>
 
-      <div class="impactRow">
+      <div class="two">
         <div class="card">
-          <span class="pill">2026 Pilot Outcomes</span>
-          <p><strong>Our goal is to directly support 50+ individuals in 2026</strong> through transportation assistance, outreach, and resource connections.</p>
-          <ul class="checklist">
-            <li>People served through outreach</li>
-            <li>Transportation assistance distributed</li>
-            <li>Job interview / employment access supported</li>
-            <li>Referrals to services completed</li>
-          </ul>
+          <span class="pill">2026 Goals</span>
+          <p><strong>Serve 50+ individuals</strong> through outreach, transportation assistance, and resource connections.</p>
+          <p style="margin-top:10px; opacity:.9;">
+            We track: people served, transportation support distributed, job access supported, and successful referrals to services.
+          </p>
         </div>
 
         <div class="card">
-          <span class="pill">Why this helps the community</span>
+          <span class="pill">Community Benefit</span>
           <p>
             When people can access work and essential services, stability improves. This supports the local economy, reduces strain on emergency systems,
-            and strengthens overall community well-being.
-          </p>
-          <p class="muted" style="margin-top:10px;">
-            Future expansion includes deeper partnerships and a supportive housing pathway as funding grows.
+            and strengthens community well-being.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Get involved -->
   <section id="get-involved">
     <div class="container">
       <div class="sectionTitle">
         <h2>Get involved</h2>
-        <p>Volunteer, partner, or support the work.</p>
+        <p>Volunteer, partner, or support the mission.</p>
       </div>
 
       <div class="grid3">
         <div class="card">
           <span class="pill">Volunteer</span>
           <h3>Join an outreach day</h3>
-          <p>
-            Help assemble hygiene kits, support outreach activities, or assist with administrative tasks.
-          </p>
-          <p style="margin-top:12px;">
+          <p>Help assemble hygiene kits, support outreach activities, or assist with administrative tasks.</p>
+          <div class="btnrow">
             <a class="btn btn-secondary" href="mailto:leebellaspromisehaven@gmail.com?subject=Volunteer%20Interest%20-%20Lee-Bella%E2%80%99s%20Promise%20Haven">Email to Volunteer</a>
-          </p>
-          <p class="muted" style="margin-top:10px;">
-            Optional: embed a Google Form below once created.
-          </p>
+          </div>
         </div>
 
         <div class="card">
           <span class="pill">Partners</span>
-          <h3>Bring services onsite</h3>
-          <p>
-            We welcome partnerships with workforce programs, counselors, benefits navigators, and community organizations.
-          </p>
-          <p style="margin-top:12px;">
+          <h3>Bring services to the community</h3>
+          <p>We welcome partnerships with workforce programs, counselors, benefits navigators, and community organizations.</p>
+          <div class="btnrow">
             <a class="btn btn-ghost" href="mailto:leebellaspromisehaven@gmail.com?subject=Partnership%20Inquiry%20-%20Lee-Bella%E2%80%99s%20Promise%20Haven">Partner Inquiry</a>
-          </p>
+          </div>
         </div>
 
         <div class="card">
           <span class="pill">Support</span>
-          <h3>Help fund direct impact</h3>
-          <p>
-            Your support helps provide transportation assistance and essential supplies that remove barriers to stability.
-          </p>
-          <p style="margin-top:12px;">
-            <!-- Replace with your real donation page -->
+          <h3>Fund direct impact</h3>
+          <p>Your support helps provide transportation assistance and essential supplies that remove barriers to stability.</p>
+          <div class="btnrow">
             <a class="btn btn-primary" href="https://example.com/donate" target="_blank" rel="noopener">Donate</a>
-          </p>
+          </div>
         </div>
       </div>
-
-      <!-- OPTIONAL: Google Form Embed
-        1) Create a Google Form titled "Volunteer Interest - Lee-Bella’s Promise Haven"
-        2) Click Send -> <> Embed -> Copy iframe
-        3) Paste it below and remove the comment wrapper.
-      -->
-      <!--
-      <div class="card" style="margin-top:14px;">
-        <span class="pill">Volunteer Form</span>
-        <iframe src="PASTE_YOUR_GOOGLE_FORM_EMBED_LINK_HERE"
-                width="100%" height="700" frameborder="0" marginheight="0" marginwidth="0">
-          Loading…
-        </iframe>
-      </div>
-      -->
     </div>
   </section>
 
-  <!-- Contact -->
   <section id="contact">
     <div class="container">
       <div class="sectionTitle">
@@ -527,25 +424,20 @@
         <p>We’d love to connect—volunteers, partners, and supporters welcome.</p>
       </div>
 
-      <div class="contactGrid">
+      <div class="two">
         <div class="card">
           <span class="pill">Contact info</span>
-          <div class="contactItem">
-            <div><strong>Email:</strong> <a href="mailto:leebellaspromisehaven@gmail.com">leebellaspromisehaven@gmail.com</a></div>
-            <div><strong>Phone:</strong> <a href="tel:+14704909901">470-490-9901</a></div>
-            <div><strong>Base:</strong> Suwanee, GA (serving Georgia)</div>
-          </div>
+          <p><strong>Email:</strong> <a href="mailto:leebellaspromisehaven@gmail.com" style="color:var(--plum); text-decoration:underline;">leebellaspromisehaven@gmail.com</a></p>
+          <p><strong>Phone:</strong> <a href="tel:+14704909901" style="color:var(--plum); text-decoration:underline;">470-490-9901</a></p>
+          <p><strong>Location:</strong> Suwanee, GA (serving Georgia)</p>
         </div>
 
         <div class="card">
           <span class="pill">Quick message</span>
-          <p class="muted">Click below to email us with a pre-filled subject line.</p>
-          <p style="margin-top:12px;">
+          <p>Click below to email us with a pre-filled subject line.</p>
+          <div class="btnrow">
             <a class="btn btn-secondary" href="mailto:leebellaspromisehaven@gmail.com?subject=Website%20Inquiry%20-%20Lee-Bella%E2%80%99s%20Promise%20Haven">Send Email</a>
-          </p>
-          <p class="muted" style="margin-top:10px;">
-            Tip: If you want a real contact form, I can set up a free Formspree or Google Form flow for GitHub Pages.
-          </p>
+          </div>
         </div>
       </div>
     </div>
